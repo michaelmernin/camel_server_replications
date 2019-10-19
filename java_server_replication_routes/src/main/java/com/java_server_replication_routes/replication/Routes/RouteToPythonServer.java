@@ -29,9 +29,9 @@ public class RouteToPythonServer extends RouteBuilder {
                 .setHeader(Exchange.HTTP_METHOD, simple("POST"))
                 //.setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
                 .setHeader(Exchange.CONTENT_TYPE, constant("form-data"))
-                .to("http:127.0.0.1:5000/sync")
-                .bean(LogResponse.class)
-                .to("file:logs");
+                .to("http:127.0.0.1:5000/sync");
+                //.bean(LogResponse.class)
+                //.to("file:logs");
 
 
         // using processor class
