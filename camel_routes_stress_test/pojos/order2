@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.apache.camel.component.file.GenericFile>
+    <probeContentType>false</probeContentType>
+    <endpointPath>xml_orders</endpointPath>
+    <fileName>order2</fileName>
+    <fileNameOnly>order2</fileNameOnly>
+    <relativeFilePath>order2</relativeFilePath>
+    <absoluteFilePath>C:\Users\Michael.Mernin\Repos\camel_routes_stress_test\xml_orders\order2</absoluteFilePath>
+    <fileLength>28</fileLength>
+    <lastModified>1566835379030</lastModified>
+    <file class="file">xml_orders\order2</file>
+    <binding class="org.apache.camel.component.file.FileBinding"/>
+    <absolute>false</absolute>
+    <directory>false</directory>
+</org.apache.camel.component.file.GenericFile>
