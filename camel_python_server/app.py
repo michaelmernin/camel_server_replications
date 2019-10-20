@@ -8,8 +8,11 @@ app = Flask(__name__)
 def welcome():
     y = request
     x = request.data
-    entry = str(request.data)[2:-1].strip("\\")
-    last_entry = json.loads(entry)['last_entry']
+    if 'last_entry' in y.values:
+        last_entry = y.values['last_entry']
+    else:
+        entry = str(request.data)[2:-1].strip("\\")
+        last_entry = json.loads(entry)['last_entry']
     with open('numbers.csv', 'r', newline='') as f:
         reader = csv.reader(f)
         row1 = next(reader)
