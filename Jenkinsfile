@@ -20,21 +20,28 @@ pipeline {
                     }
             }
         }
-        stage("Start Servers"){
+        stage("Start Servers/Run Tests"){
             steps{
                 parallel(
                     "Python": {
-                        timeout(time:1, unit: 'MINUTES'){
+                        timeout(time:2, unit: 'MINUTES'){
                         bat "python camel_python_server/app.py"
                         }
                     },
                     "Jar file": {
-                        timeout(time: 1, unit: 'MINUTES') {
+                        timeout(time: 2, unit: 'MINUTES') {
                             bat "java -jar java_server_replication_routes/build/libs/java_server_replication_routes-0.0.1-SNAPSHOT.jar"
                         }
-                    }
+                    },
+                    "Build Rest Assured Jar": {
+                        sleep(10)
+                        bat "echo 'building rest_assured'"
+                        dir("camel_rest_assured"){
+                            bat "gradle build"
+                        }
+                    }                
                 )
             }
-        }             
+        }
     }
 }
