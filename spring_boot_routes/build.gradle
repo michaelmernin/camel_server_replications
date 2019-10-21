@@ -30,9 +30,9 @@ dependencies {
     implementation 'org.apache.camel:camel-spring:2.24.0'
     implementation 'org.apache.camel:camel-core:2.24.0'
     implementation 'org.apache.camel:camel-http:2.24.0'
-    implementation 'org.apache.camel:camel-direct-starter:2.24.0'
-//    implementation 'org.apache.camel:camel-rest:2.24.0'
-    implementation 'org.apache.camel:camel-rest-starter:2.24.0'
+    //implementation 'org.apache.camel:camel-direct-starter:2.24.0'
+    implementation 'org.apache.camel:camel-rest:2.24.0'
+//    implementation 'org.apache.camel:camel-rest-starter:2.24.0'
     // https://mvnrepository.com/artifact/org.apache.camel/camel-http4
     testCompile group: 'org.apache.camel', name: 'camel-http4', version: '2.24.0'
 
