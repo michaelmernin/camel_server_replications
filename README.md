@@ -14,9 +14,9 @@ A pipeline that:
   clones project repo  
   pip installs python requirements  
     steps run in parralel:  
-    builds(gradle) /spring_boot_routes server  
-    starts /python_rest_api server  
-    builds(gradle) /rest_assured jar, running tests against the servers running from previous steps
+    - builds(gradle) /spring_boot_routes server  
+    - starts /python_rest_api server  
+    - builds(gradle) /rest_assured jar, running tests against the servers running from previous steps
   
   
   
