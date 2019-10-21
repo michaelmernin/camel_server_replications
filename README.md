@@ -1,6 +1,6 @@
 descriptions of project folders/components
 # spring_boot_routes:
-Spring boot app, leveraging camel routes to ensure /python_rest_api and /spring_boot_routes data remains synced \n
+Spring boot app, leveraging camel routes to ensure /python_rest_api and /spring_boot_routes data remains synced.  
 Camel components:
 
 # python_rest_api:
