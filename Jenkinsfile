@@ -9,13 +9,13 @@ pipeline {
         }
         stage ('Pip install requirements.txt'){
             steps{
-                bat "pip install -r camel_python_server/requirements.txt"
+                bat "pip install -r python_rest_api/requirements.txt"
             }
         }
-        stage ('Exec Gradle for Camel Server') {
+        stage ('Gradle build Camel Server') {
             steps {
                 bat "echo 'navigate to camel server'"
-                dir("java_server_replication_routes"){
+                dir("spring_boot_routes"){
                         bat "gradle build"
                     }
             }
@@ -23,20 +23,21 @@ pipeline {
         stage("Start Servers/Run Tests"){
             steps{
                 parallel(
-                    "Python": {
+                    "Python Rest Api": {
                         timeout(time:2, unit: 'MINUTES'){
-                        bat "python camel_python_server/app.py"
+                        bat "python python_rest_api/app.py"
                         }
                     },
-                    "Jar file": {
+                    "Spring Boot Routes": {
                         timeout(time: 2, unit: 'MINUTES') {
-                            bat "java -jar java_server_replication_routes/build/libs/java_server_replication_routes-0.0.1-SNAPSHOT.jar"
+                            bat "java -jar spring_boot_routes/build/libs/java_server_replication_routes-0.0.1-SNAPSHOT.jar"
                         }
                     },
                     "Build Rest Assured Jar": {
+						/* Allowing time for servers to start up */
                         sleep(10)
                         bat "echo 'building rest_assured'"
-                        dir("camel_rest_assured"){
+                        dir("rest_assured"){
                             bat "gradle build"
                         }
                     }                
