@@ -10,12 +10,12 @@ Flask server, exposing a single post endpoint "/sync", that syncs existing data 
 Rest assured framework, testing python_rest_api's endpoint "sync" json response. 
 
 # JenkinsFile:
-A pipeline that:
-  clones project repo
-  pip installs python requirements
-  steps run in parralel:
-    builds(gradle) /spring_boot_routes server
-    starts /python_rest_api server
+A pipeline that:  
+  clones project repo  
+  pip installs python requirements  
+    steps run in parralel:  
+    builds(gradle) /spring_boot_routes server  
+    starts /python_rest_api server  
     builds(gradle) /rest_assured jar, running tests against the servers running from previous steps
   
   
